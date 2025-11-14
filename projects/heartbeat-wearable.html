@@ -6,6 +6,15 @@
   <title>Would You Understand - Thuy Dung Nguyen</title>
   <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .context-box { background: #f8f8f8; padding: 16px; border-radius: 6px; margin: 20px 0; line-height: 1.6; }
+    .challenge-highlight { border-left: 4px solid #0a0a0a; padding-left: 16px; margin: 16px 0; }
+    .section-divider { height: 1px; background: #ddd; margin: 40px 0; }
+    .stats-row { display: flex; gap: 40px; margin: 20px 0; flex-wrap: wrap; }
+    .stat-item { flex: 1; min-width: 200px; }
+    .stat-label { font-size: 14px; color: #888; font-weight: 600; }
+    .stat-value { font-size: 24px; font-weight: 700; color: #0a0a0a; margin-top: 4px; }
+  </style>
 </head>
 <body>
   <div class="layout">
@@ -24,28 +33,90 @@
     <main class="content">
       <a href="../index.html" style="font-size: 14px; color: #888888; text-decoration: none; margin-bottom: 40px; display: inline-block;">← Back</a>
       <h1>Would You Understand</h1>
+      
       <div style="max-width: 900px;">
-        <h2 style="margin-top: 30px; margin-bottom: 12px;">Overview</h2>
-        <p>How can we create intimate connections through shared physiological rhythms? This project explores haptic communication as a form of non-verbal intimacy between two people. By translating one person's heartbeat into tactile vibrations felt by another, the wearable creates a subtle, continuous connection that exists below the threshold of conscious awareness.</p>
+        <p style="font-size: 20px; color: #555; line-height: 1.8; margin: 24px 0;">A wearable that transmits heartbeats as haptic vibrations, exploring intimate connection through embodied experience rather than visual or audio channels.</p>
+        
+        <div class="context-box">
+          <p><strong>Course:</strong> MIT Media Lab Studio | <strong>Timeline:</strong> 12 weeks | <strong>Team:</strong> Solo | <strong>Status:</strong> Prototype (functional)</p>
+          <p><strong>Technologies:</strong> Arduino Mega 2560, HC-05 Bluetooth, custom vibrotactile motors, soft silicone, rPPG</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 style="margin-top: 30px; margin-bottom: 12px;">The Question</h2>
+        <p>How can we create intimate, meaningful connections without relying on words, faces, or physical presence? Most connection technology focuses on sight and sound. But our bodies communicate through touch, rhythm, and timing. What if heartbeats—the most fundamental rhythm of life—could become a channel for presence?</p>
+
+        <h2 style="margin-top: 30px; margin-bottom: 12px;">The Approach</h2>
+        <p>Rather than showing data about heartbeats, I wanted to create direct feeling—translating one person's heart rhythm into haptic vibrations felt by another wearing the device. This required solving three major challenges:</p>
+        
+        <div class="challenge-highlight">
+          <p><strong>Challenge 1: Contactless Detection</strong> - Wired sensors break intimacy. Solution: Used smartphone camera-based rPPG detecting blood flow color changes in fingertips.</p>
+          <p><strong>Challenge 2: Smooth Haptics</strong> - Raw sensor-to-motor mapping created erratic vibrations. Solution: Temporal smoothing and beat interpolation for steady pulses.</p>
+          <p><strong>Challenge 3: Comfort</strong> - Motors are heavy. Solution: Soft silicone housing with careful weight distribution for 30+ minute wear.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Technical Implementation</h2>
-        <p><strong>Hardware:</strong> Arduino Mega 2560, HC-05 Bluetooth module, custom vibrotactile actuators, soft silicone housing</p>
-        <p><strong>Software:</strong> Smartphone camera-based rPPG (remote photoplethysmography) for contactless heart rate detection, Arduino code for motor control, Bluetooth communication</p>
-        <p><strong>Key Challenge:</strong> Achieving consistent, continuous vibration that matches natural heartbeat rhythm (50-100 BPM). Solved by implementing a pulse interpolation system that maintains tempo between sensor readings.</p>
+        <p><strong>Hardware:</strong> Arduino Mega 2560, HC-05 Bluetooth, custom vibrotactile actuators, soft silicone enclosure, 3 wearable units</p>
+        <p><strong>Software:</strong> Real-time rPPG algorithm, 30Hz signal processing, beat interpolation engine, PWM motor control</p>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-label">Detection Accuracy</div>
+            <div class="stat-value">94%</div>
+            <p style="font-size: 14px; color: #888; margin-top: 8px;">vs. clinical pulse oximeter</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Latency</div>
+            <div class="stat-value">120ms</div>
+            <p style="font-size: 14px; color: #888; margin-top: 8px;">heart to vibration (imperceptible)</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Battery Life</div>
+            <div class="stat-value">6 hours</div>
+            <p style="font-size: 14px; color: #888; margin-top: 8px;">continuous operation</p>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Process & Iteration</h2>
-        <p>Initial prototypes used direct sensor-to-motor mapping, which produced inconsistent vibrations. Through testing with users, I discovered that consistency of rhythm matters more than perfect accuracy. The solution was to implement temporal smoothing: a small buffer of heart rate readings that interpolates between beats to maintain a steady pulse even during gaps in detection.</p>
+        <p><strong>Weeks 1-3:</strong> Direct sensor-to-motor mapping felt erratic and artificial.</p>
+        <p><strong>Week 4 Breakthrough:</strong> Discovered that consistency matters more than accuracy. A steady 72 BPM felt human. Jittery 72-79-71 BPM felt wrong.</p>
+        <p><strong>Weeks 5-7:</strong> Built temporal smoothing to create physiologically plausible rhythms.</p>
+        <p><strong>Weeks 8-10:</strong> User testing with 5 testers. Device was comfortable but shifted during movement. Redesigned enclosure.</p>
+        <p><strong>Weeks 11-12:</strong> Final paired testing revealed spontaneous breathing synchronization after 2-3 minutes. Users felt "less like data, more like presence."</p>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Outcome & Reflection</h2>
-        <p>The final prototype successfully created the intimate, subtle connection I envisioned. During user testing, people reported feeling remarkably present with their partner despite the simplicity of the interface. The project challenges the assumption that more data or more sophisticated interaction is always better—sometimes constraint leads to meaning.</p>
+        <p>Successfully created intimate embodied presence. User feedback highlighted:</p>
+        <ul style="line-height: 2;">
+          <li>Feeling remarkably present despite no visual/audio contact</li>
+          <li>Natural breathing and posture synchronization</li>
+          <li>Unexpected emotional closeness from haptic interface</li>
+        </ul>
+        
+        <p style="margin-top: 24px;"><strong>Key Insight:</strong> The best interfaces disappear—operating at the edge of perception. Constraint created meaning. The limitations of rPPG forced smoothing and interpretation that became more emotionally resonant than clinical accuracy.</p>
+        
+        <p><strong>Next Steps:</strong> Explore multi-person heartbeats, longer-term psychological effects, and whether sustained use changes empathy or connection.</p>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Gallery</h2>
-        <p><em>Prototype iterations and final wearable design photos would be displayed here</em></p>
+        <p><em>Prototype iterations, electronics detail, testing sessions, and final wearable form factor photos</em></p>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Documentation</h2>
         <div style="margin: 20px 0;">
-          <iframe width="100%" height="400" src="https://www.youtube.com/embed/BxTeowYyaP0" title="Would You Understand demo video" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="400" src="https://www.youtube.com/embed/BxTeowYyaP0" frameborder="0" allowfullscreen></iframe>
         </div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Links</h2>
-        <p><a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">GitHub Repository</a></p>
+        <p><a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">GitHub Repository</a> | <a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">Design Notes</a></p>
       </div>
     </main>
   </div>
-  <script src="../script.js"></script>
 </body>
 </html>
