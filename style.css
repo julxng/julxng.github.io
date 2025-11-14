@@ -49,6 +49,18 @@ body {
     letter-spacing: -0.02em;
 }
 
+.logo-img {
+    height: 32px;
+    width: auto;
+    display: block;
+    transition: opacity 0.2s;
+}
+
+.nav-logo:hover .logo-img {
+    opacity: 0.7;
+}
+
+
 .nav-links {
     display: flex;
     gap: 32px;
@@ -287,6 +299,12 @@ body {
     font-size: 14px;
     color: var(--gray);
 }
+.footer-logo {
+    height: 24px;
+    margin-bottom: 16px;
+    opacity: 0.6;
+}
+
 
 /* ===== Responsive ===== */
 @media (max-width: 1024px) {
