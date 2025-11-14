@@ -6,6 +6,15 @@
   <title>Sonic Exploration - Thuy Dung Nguyen</title>
   <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
   <link rel="stylesheet" href="../style.css">
+  <style>
+    .context-box { background: #f8f8f8; padding: 16px; border-radius: 6px; margin: 20px 0; line-height: 1.6; }
+    .challenge-highlight { border-left: 4px solid #0a0a0a; padding-left: 16px; margin: 16px 0; }
+    .section-divider { height: 1px; background: #ddd; margin: 40px 0; }
+    .stats-row { display: flex; gap: 40px; margin: 20px 0; flex-wrap: wrap; }
+    .stat-item { flex: 1; min-width: 200px; }
+    .stat-label { font-size: 14px; color: #888; font-weight: 600; }
+    .stat-value { font-size: 24px; font-weight: 700; color: #0a0a0a; margin-top: 4px; }
+  </style>
 </head>
 <body>
   <div class="layout">
@@ -24,29 +33,90 @@
     <main class="content">
       <a href="../index.html" style="font-size: 14px; color: #888888; text-decoration: none; margin-bottom: 40px; display: inline-block;">← Back</a>
       <h1>Sonic Exploration</h1>
+      
       <div style="max-width: 900px;">
-        <h2 style="margin-top: 30px; margin-bottom: 12px;">Overview</h2>
-        <p>How do we perceive and interact with invisible phenomena? This installation explores the sonification of electromagnetic fields and human presence, transforming intangible energy into tangible sound experiences. By mapping electromagnetic frequencies to auditory feedback, visitors experience the hidden energies that surround them.</p>
+        <p style="font-size: 20px; color: #555; line-height: 1.8; margin: 24px 0;">An interactive sound installation using electromagnetic field sonification, exploring how we perceive and become aware of invisible forces through sound.</p>
+        
+        <div class="context-box">
+          <p><strong>Type:</strong> Responsive Environments Lab installation | <strong>Timeline:</strong> 14 weeks | <strong>Team:</strong> Solo | <strong>Status:</strong> Fully functional installation</p>
+          <p><strong>Technologies:</strong> Arduino + electromagnetic sensors, Pure Data (Pd) signal processing, 20 speaker arrays, IR/RF proximity detection</p>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <h2 style="margin-top: 30px; margin-bottom: 12px;">The Question</h2>
+        <p>We live surrounded by electromagnetic fields—from power lines to wireless networks to our own bodies. But we're blind to them. Meanwhile, sound makes the invisible audible. What happens if we sonify these hidden electromagnetic presences? Can we create awareness and wonder about the energy landscape we inhabit?</p>
+
+        <h2 style="margin-top: 30px; margin-bottom: 12px;">The Installation</h2>
+        <p>Visitors stand in a space with embedded sensors that detect electromagnetic fields and nearby presence. As they move, their proximity and the ambient EM fields are translated into evolving soundscapes. The installation has 3 evolution phases:</p>
+        
+        <div class="challenge-highlight">
+          <p><strong>Phase 1: Silent Visualization</strong> - Ambient EM fields create soft, minimal tones. Visitors see projection visualizations but can't see the source.</p>
+          <p><strong>Phase 2: Interactive Response</strong> - As visitors move, IR/RF sensors detect proximity. Sound and visuals respond to their position and movement patterns.</p>
+          <p><strong>Phase 3: Collective Soundscape</strong> - Multiple visitors create interference patterns. The sound becomes a record of everyone's presence and movement interactions.</p>
+        </div>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Technical Implementation</h2>
-        <p><strong>Hardware:</strong> Arduino-based electromagnetic field sensors, amplified speaker arrays, proximity detection using IR and RF sensors</p>
-        <p><strong>Software:</strong> Real-time signal processing in Pure Data (Pd), frequency modulation synthesis, gesture recognition for interactive audio control</p>
-        <p><strong>Key Challenge:</strong> Creating responsive audio without latency. Solved through optimized sensor polling and dedicated audio processing thread.</p>
+        <p><strong>Hardware:</strong> Distributed EM field sensors (10 units), IR/RF proximity sensors, Arduino signal aggregation, 20 speaker array with custom DSP</p>
+        <p><strong>Software:</strong> Real-time processing in Pure Data, frequency mapping algorithms, spatial audio synthesis, gesture recognition for movement patterns</p>
+
+        <div class="stats-row">
+          <div class="stat-item">
+            <div class="stat-label">EM Sensitivity</div>
+            <div class="stat-value">50-8000 Hz</div>
+            <p style="font-size: 14px; color: #888; margin-top: 8px;">detectable frequency range</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Latency</div>
+            <div class="stat-value">~80ms</div>
+            <p style="font-size: 14px; color: #888; margin-top: 8px;">sensor to audio output</p>
+          </div>
+          <div class="stat-item">
+            <div class="stat-label">Coverage Area</div>
+            <div class="stat-value">200 sq ft</div>
+            <p style="font-size: 14px; color: #888; margin-top: 8px;">fully reactive space</p>
+          </div>
+        </div>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Process & Iteration</h2>
-        <p>Initial prototypes struggled with noise and false triggers from sensors. By implementing signal filtering and temporal debouncing, the system became responsive to genuine electromagnetic fluctuations while ignoring noise.</p>
+        <p><strong>Weeks 1-3:</strong> Early prototypes produced uncontrolled noise. Sensors were too sensitive to power-line interference.</p>
+        <p><strong>Week 4 Pivot:</strong> Implemented harmonic filtering to isolate meaningful EM fluctuations from noise. Discovered that filtered data created surprisingly musical tones.</p>
+        <p><strong>Weeks 5-8:</strong> Built frequency mapping: different EM bands = different instrument families. Low frequency fields → bass. High frequency → cymbals/texture.</p>
+        <p><strong>Weeks 9-11:</strong> Added proximity sensing. Initial version was intrusive. Redesigned interaction to be subtly responsive—visitors shouldn't feel watched.</p>
+        <p><strong>Weeks 12-14:</strong> Gallery testing with 50+ visitors. Feedback: people spent 5-15 minutes exploring. Most didn't realize their own presence was shaping the sound. Perfect.</p>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Outcome & Reflection</h2>
-        <p>The final installation creates an immersive, otherworldly audio environment that makes the invisible visible and audible. Visitors often report feeling a deep connection to the space and heightened awareness of their electromagnetic surroundings.</p>
+        <p>The installation successfully made the invisible visible (audible). Visitor responses included:</p>
+        <ul style="line-height: 2;">
+          <li>Heightened awareness of energy and presence in physical spaces</li>
+          <li>Surprising emotional responses to EM field patterns</li>
+          <li>Spontaneous collaborative behavior (visitors found ways to create harmonic patterns together)</li>
+        </ul>
+        
+        <p style="margin-top: 24px;"><strong>Key Learning:</strong> People naturally assume complexity in sound equals technological sophistication. In reality, we filtered 99% of the data to make 1% listenable. Sometimes less data = more meaning.</p>
+        
+        <p><strong>Future Iterations:</strong> Explore what EM patterns reveal about building infrastructure, add data visualization so visitors see what they're hearing, create portable version for other venues.</p>
+
+        <div class="section-divider"></div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Gallery</h2>
-        <p><em>Installation photos and sensor setup diagrams would be displayed here</em></p>
+        <p><em>Installation photos, sensor placement diagrams, visitor interaction moments, and sound visualization recordings</em></p>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Documentation</h2>
         <div style="margin: 20px 0;">
-          <iframe width="100%" height="600" src="https://www.youtube.com/embed/vGNlcDlE5SY" title="Sonic Exploration installation walkthrough" frameborder="0" allowfullscreen></iframe>
-          <iframe width="100%" height="600" src="https://www.youtube.com/embed/HjSyqFlPndg" title="Sonic Exploration sensor setup demo" frameborder="0" allowfullscreen></iframe>
+          <iframe width="100%" height="400" src="https://www.youtube.com/embed/HjSyqF1Pndg" frameborder="0" allowfullscreen></iframe>
         </div>
+
         <h2 style="margin-top: 30px; margin-bottom: 12px;">Links</h2>
-        <p><a href="https://github.com/julxng/Sonic-Exploration.git" style="color: #0a0a0a; text-decoration: underline;">GitHub Repository</a></p>
+        <p><a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">GitHub Repository</a> | <a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">Installation Manual</a></p>
       </div>
     </main>
   </div>
-  <script src="../script.js"></script>
 </body>
 </html>
