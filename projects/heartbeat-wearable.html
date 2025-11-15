@@ -1,127 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Would You Understand - Thuy Dung Nguyen</title>
-  <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
-  <link rel="stylesheet" href="../style.css">
-  <style>
-    p { margin-bottom: 18px; line-height: 1.7; }
-    .context-box { background: #f8f8f8; padding: 16px; border-radius: 6px; margin: 28px 0; line-height: 1.8; }
-    .context-box p { margin-bottom: 8px; }
-    .challenge-highlight { border-left: 4px solid #0a0a0a; padding-left: 16px; margin: 24px 0; }
-    .challenge-highlight p { margin-bottom: 16px; }
-    .section-divider { height: 1px; background: #ddd; margin: 48px 0; }
-    .stats-row { display: flex; gap: 40px; margin: 32px 0; flex-wrap: wrap; }
-    .stat-item { flex: 1; min-width: 200px; }
-    .stat-label { font-size: 14px; color: #888; font-weight: 600; }
-    .stat-value { font-size: 24px; font-weight: 700; color: #0a0a0a; margin-top: 4px; }
-    ul { margin: 16px 0 20px 20px; line-height: 1.8; }
-    li { margin-bottom: 10px; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Would You Understand – Thuy Dung Nguyen</title>
+    <link rel="icon" type="image/svg+xml" href="../assets/logo.svg">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        p { margin-bottom: 18px; line-height: 1.7; }
+        .context-box { background: #f8f8f8; padding: 16px; border-radius: 6px; margin: 28px 0; line-height: 1.8; }
+        .context-box p { margin-bottom: 8px; }
+        .challenge-highlight { border-left: 4px solid #0a0a0a; padding-left: 16px; margin: 24px 0; }
+        .challenge-highlight p { margin-bottom: 16px; }
+        .section-divider { height: 1px; background: #ddd; margin: 48px 0; }
+        .stats-row { display: flex; gap: 40px; margin: 32px 0; flex-wrap: wrap; }
+        .stat-item { flex: 1; min-width: 200px; }
+        .stat-label { font-size: 14px; color: #888; font-weight: 600; }
+        .stat-value { font-size: 24px; font-weight: 700; color: #0a0a0a; margin-top: 4px; }
+        ul { margin-bottom: 10px; }
+        li { margin-bottom: 10px; }
+        .tech-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        .tech-table td { padding: 12px; border-bottom: 1px solid #eee; }
+        .tech-table td:first-child { font-weight: 600; width: 30%; }
+    </style>
 </head>
 <body>
-  <div class="layout">
-    <aside class="sidebar">
-      <div class="sidebar-content">
-        <a href="../index.html" class="logo">
-          <img src="../assets/logo.svg" alt="Logo">
-        </a>
-        <nav class="nav">
-          <a href="../index.html#work">Work</a>
-          <a href="../index.html#about">About</a>
-          <a href="../index.html#contact">Contact</a>
+    <div class="layout">
+        <nav class="navbar">
+            <a href="../index.html" class="logo">Thuy Dung</a>
+            <div class="nav-links">
+                <a href="../index.html#work">Work</a>
+                <a href="../index.html#about">About</a>
+                <a href="../index.html#contact">Contact</a>
+            </div>
         </nav>
-      </div>
-    </aside>
-    <main class="content">
-      <a href="../index.html" style="font-size: 14px; color: #888888; text-decoration: none; margin-bottom: 40px; display: inline-block;">← Back</a>
-      <h1>Would You Understand</h1>
-      
-      <div style="max-width: 900px;">
-        <p style="font-size: 20px; color: #555; line-height: 1.8; margin: 24px 0 28px 0;">A wearable that transmits heartbeats as haptic vibrations, exploring intimate connection through embodied experience rather than visual or audio channels.</p>
+        <a href="../index.html" class="back-link">← Back</a>
         
-        <div class="context-box">
-          <p><strong>Course:</strong> Design Studio | <strong>Timeline:</strong> 12 weeks | <strong>Team:</strong> Solo | <strong>Status:</strong> Prototype (functional)</p>
-          <p><strong>Technologies:</strong> Arduino Mega 2560, HC-05 Bluetooth, custom vibrotactile motors, soft silicone, rPPG</p>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">The Question</h2>
-        <p>How can we create intimate, meaningful connections without relying on words, faces, or physical presence? Most connection technology focuses on sight and sound. But our bodies communicate through touch, rhythm, and timing. What if heartbeats—the most fundamental rhythm of life—could become a channel for presence?</p>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">The Approach</h2>
-        <p>Rather than showing data about heartbeats, I wanted to create direct feeling—translating one person's heart rhythm into haptic vibrations felt by another wearing the device. This required solving three major challenges:</p>
-        
-        <div class="challenge-highlight">
-          <p><strong>Challenge 1: Contactless Detection</strong> - Wired sensors break intimacy. Solution: Used smartphone camera-based rPPG detecting blood flow color changes in fingertips.</p>
-          <p><strong>Challenge 2: Smooth Haptics</strong> - Raw sensor-to-motor mapping created erratic vibrations. Solution: Temporal smoothing and beat interpolation for steady pulses.</p>
-          <p><strong>Challenge 3: Comfort</strong> - Motors are heavy. Solution: Soft silicone housing with careful weight distribution for 30+ minute wear.</p>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">Technical Implementation</h2>
-        <p><strong>Hardware:</strong> Arduino Mega 2560, HC-05 Bluetooth, custom vibrotactile actuators, soft silicone enclosure, 3 wearable units</p>
-        <p><strong>Software:</strong> Real-time rPPG algorithm, 30Hz signal processing, beat interpolation engine, PWM motor control</p>
-
-        <div class="stats-row">
-          <div class="stat-item">
-            <div class="stat-label">Detection Accuracy</div>
-            <div class="stat-value">94%</div>
-            <p style="font-size: 14px; color: #888; margin-top: 8px;">vs. clinical pulse oximeter</p>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Latency</div>
-            <div class="stat-value">120ms</div>
-            <p style="font-size: 14px; color: #888; margin-top: 8px;">heart to vibration (imperceptible)</p>
-          </div>
-          <div class="stat-item">
-            <div class="stat-label">Battery Life</div>
-            <div class="stat-value">6 hours</div>
-            <p style="font-size: 14px; color: #888; margin-top: 8px;">continuous operation</p>
-          </div>
-        </div>
-
-        <div class="section-divider"></div>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">Process & Iteration</h2>
-        <p><strong>Weeks 1-3:</strong> Direct sensor-to-motor mapping felt erratic and artificial.</p>
-        <p><strong>Week 4 Breakthrough:</strong> Discovered that consistency matters more than accuracy. A steady 72 BPM felt human. Jittery 72-79-71 BPM felt wrong.</p>
-        <p><strong>Weeks 5-7:</strong> Built temporal smoothing to create physiologically plausible rhythms.</p>
-        <p><strong>Weeks 8-10:</strong> User testing with 5 testers. Device was comfortable but shifted during movement. Redesigned enclosure.</p>
-        <p><strong>Weeks 11-12:</strong> Final paired testing revealed spontaneous breathing synchronization after 2-3 minutes. Users felt "less like data, more like presence."</p>
-
-        <div class="section-divider"></div>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">Outcome & Reflection</h2>
-        <p>Successfully created intimate embodied presence. User feedback highlighted:</p>
-        <ul>
-          <li>Feeling remarkably present despite no visual/audio contact</li>
-          <li>Natural breathing and posture synchronization</li>
-          <li>Unexpected emotional closeness from haptic interface</li>
-        </ul>
-        
-        <p style="margin-top: 24px;"><strong>Key Insight:</strong> The best interfaces disappear—operating at the edge of perception. Constraint created meaning. The limitations of rPPG forced smoothing and interpretation that became more emotionally resonant than clinical accuracy.</p>
-        
-        <p><strong>Next Steps:</strong> Explore multi-person heartbeats, longer-term psychological effects, and whether sustained use changes empathy or connection.</p>
-
-        <div class="section-divider"></div>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">Gallery</h2>
-        <p><em>Prototype iterations, electronics detail, testing sessions, and final wearable form factor photos</em></p>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">Documentation</h2>
-        <div style="margin: 24px 0;">
-          <iframe width="100%" height="400" src="https://www.youtube.com/embed/BxTeowYyaP0" frameborder="0" allowfullscreen></iframe>
-        </div>
-
-        <h2 style="margin-top: 32px; margin-bottom: 16px;">Links</h2>
-        <p><a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">GitHub Repository</a> | <a href="https://github.com" style="color: #0a0a0a; text-decoration: underline;">Design Notes</a></p>
-      </div>
-    </main>
-  </div>
+        <article class="project-page">
+            <h1>Would You Understand</h1>
+            <p>A two-person heartbeat-sharing device that creates physical empathy through real-time haptic feedback, exploring whether feeling another's heartbeat can build understanding when words fail.</p>
+            
+            <div class="context-box">
+                <p><strong>Course:</strong> Independent Research (Delta Residency)</p>
+                <p><strong>Timeline:</strong> 3 weeks (October 2025)</p>
+                <p><strong>Team:</strong> Solo</p>
+                <p><strong>Status:</strong> Functional Prototype (Dual-Person System)</p>
+                <p><strong>Technologies:</strong> Python (OpenCV, NumPy, SciPy), Arduino Mega 2560, rPPG, haptic motors, HC-05 Bluetooth</p>
+            </div>
+            
+            <section>
+                <h2>The Question</h2>
+                <p><strong>Can physically feeling another person's heartbeat increase empathy and emotional connection when words fail?</strong></p>
+                <p>In moments of emotional overwhelm, social stress, or communication barriers, we often retreat into silence. Yet our hearts continue to beat—a rhythm that speaks louder than any explanation. This project investigates whether transmitting one person's heartbeat as tactile vibrations to another can create a channel for understanding that transcends language and operates at a physiological level.</p>
+                <p><strong>Motivation:</strong> Inspired by research on interpersonal synchrony (Goldstein et al., 2017) and the power of shared physical experiences, this project asks: Can nonverbal physiological signals create empathy in ways that verbal communication cannot?</p>
+            </section>
+            
+            <section>
+                <h2>The Approach</h2>
+                <p>Rather than displaying heartbeat data visually or aurally, I wanted to create direct physical feeling—translating one person's heart rhythm into haptic vibrations felt by another. This required solving three major technical and conceptual challenges:</p>
+                
+                <div class="challenge-highlight">
+                    <p><strong>Challenge 1: Contactless Detection</strong></p>
+                    <p>Wired sensors on fingers or chest break intimacy and limit interaction. <strong>Solution:</strong> Implemented smartphone camera-based remote photoplethysmography (rPPG) that detects blood flow color changes in facial skin—no sensors needed.</p>
+                </div>
+                
+                <div class="challenge-highlight">
+                    <p><strong>Challenge 2: Realistic Haptic Sensation</strong></p>
+                    <p>Raw sensor-to-motor mapping creates erratic, clinical-feeling vibrations. <strong>Solution:</strong> Developed temporal smoothing and beat interpolation to generate physiologically plausible "lub-dub" patterns, making the sensation feel like a real heartbeat rather than robotic pulses.</p>
+                </div>
+                
+                <div class="challenge-highlight">
+                    <p><strong>Challenge 3: Dual-Person Synchronization</strong></p>
+                    <p>Tracking and transmitting two people's heart rates simultaneously while maintaining low latency is non-trivial. <strong>Solution:</strong> Face cascade classifier with size-based sorting, dual independent signal buffers, and serial communication via Arduino.</p>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Technical Implementation</h2>
+                
+                <h3>Hardware</h3>
+                <ul>
+                    <li><strong>Arduino Mega 2560</strong> – Microcontroller for dual-motor control and serial communication</li>
+                    <li><strong>2x Coin Vibration Motors</strong> (1027 type, 3V) – One for each participant to feel the other's heartbeat</li>
+                    <li><strong>MacBook Webcam</strong> (720p, 30fps) – Contactless heart rate detection via skin color analysis</li>
+                    <li><strong>External 5V Power Supply</strong> – Stable power for motor operation without voltage sag</li>
+                    <li><strong>HC-05 Bluetooth Module</strong> – For future wireless capability</li>
+                </ul>
+                
+                <h3>Software</h3>
+                <ul>
+                    <li><strong>Python 3.13</strong> (main control system)
+                        <ul>
+                            <li>OpenCV – Haar Cascade face detection and ROI extraction</li>
+                            <li>NumPy – Signal detrending and statistical analysis</li>
+                            <li>SciPy – FFT for frequency domain BPM extraction</li>
+                            <li>PySerial – Real-time Arduino communication</li>
+                        </ul>
+                    </li>
+                    <li><strong>Arduino C++</strong> (firmware)
+                        <ul>
+                            <li>Non-blocking heartbeat generation with PWM</li>
+                            <li>Dual-motor independent timing control</li>
+                            <li>Serial parsing with validation (format: `1:XX` or `2:XX`)</li>
+                            <li>LED feedback for silent operation confirmation</li>
+                        </ul>
+                    </li>
+                </ul>
+                
+                <h3>Key Metrics</h3>
+                <div class="stats-row">
+                    <div class="stat-item">
+                        <div class="stat-label">Detection Accuracy</div>
+                        <div class="stat-value">±3 BPM</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Update Frequency</div>
+                        <div class="stat-value">2 Hz</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">Latency</div>
+                        <div class="stat-value">1-2 sec</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-label">BPM Range</div>
+                        <div class="stat-value">45-180</div>
+                    </div>
+                </div>
+            </section>
+            
+            <section>
+                <h2>Process & Iteration</h2>
+                
+                <h3>Week 1: Foundation & Single-Person Prototype</h3>
+                <ul>
+                    <li>Researched rPPG algorithms and existing heartbeat detection methods</li>
+                    <li>Built initial Arduino motor test (fixed 75 BPM pattern)</li>
+                    <li>Implemented basic rPPG pipeline: face detection → green channel isolation → FFT → BPM</li>
+                    <li><strong>Breakthrough:</strong> Discovered direct motor connection works with external power (no transistor needed)</li>
+                    <li>Achieved working single-person system: webcam → Python → Arduino → vibration</li>
+                </ul>
+                
+                <h3>Week 2: Dual-Person System & Critical Debugging</h3>
+                <ul>
+                    <li>Modified Arduino code for independent dual-motor control (pins 8 & 9)</li>
+                    <li>Rewrote Python for simultaneous two-face detection and BPM processing</li>
+                    <li><strong>Major Challenge:</strong> Serial communication breakdown—data not transmitting to Arduino</li>
+                    <li><strong>Root Cause:</strong> Arduino IDE Serial Monitor was locking the port</li>
+                    <li><strong>Solution:</strong> Close IDE completely before running Python script</li>
+                    <li>Added LED feedback system for silent operation confirmation</li>
+                    <li>Implemented 3-second timeout to stop motors when no face detected</li>
+                </ul>
+                
+                <h3>Week 3: Testing & Documentation</h3>
+                <ul>
+                    <li>Validated dual-motor system with LED confirmation</li>
+                    <li>Prepared comprehensive documentation for user testing protocol</li>
+                    <li>Tested with reference pulse oximeter (±3 BPM accuracy confirmed)</li>
+                    <li>Documented system architecture and troubleshooting guide</li>
+                    <li>Acquired HC-05 Bluetooth module for wireless next iteration</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2>Outcome & Reflection</h2>
+                
+                <h3>What Worked</h3>
+                <ul>
+                    <li><strong>rPPG Accuracy:</strong> Consistently within ±3 BPM of clinical reference</li>
+                    <li><strong>Real-time Performance:</strong> Sub-2-second latency feels immediate and responsive</li>
+                    <li><strong>Dual-Person Detection:</strong> Face cascade successfully tracks two people simultaneously</li>
+                    <li><strong>Silent Operation:</strong> LED feedback eliminates need for Serial Monitor during use</li>
+                    <li><strong>Intuitive Sensation:</strong> "Lub-dub" pattern recognized as heartbeat immediately</li>
+                </ul>
+                
+                <h3>Key Insight</h3>
+                <p>The technical challenge wasn't the algorithm—it was the interface. The biggest breakthroughs came from constraints that forced simplification:</p>
+                <ul>
+                    <li>Eliminating Serial Monitor dependency (LED feedback instead)</li>
+                    <li>Auto-stopping when no face detected (prevents user confusion)</li>
+                    <li>Simplifying data format for Arduino parsing</li>
+                </ul>
+                <p>The system works best when it "disappears"—when users stop thinking about the technology and just experience the sensation.</p>
+                
+                <h3>Next Steps</h3>
+                <ul>
+                    <li><strong>User Study:</strong> Structured tests with 10+ participant pairs (friends, couples, strangers)</li>
+                    <li><strong>Wireless Implementation:</strong> HC-05 Bluetooth integration for untethered experience</li>
+                    <li><strong>Physical Design:</strong> Soft silicone/fabric enclosures for comfortable long-term wear</li>
+                    <li><strong>Distance Testing:</strong> Explore internet-based heartbeat sharing (cross-country/cross-continent)</li>
+                    <li><strong>Emotional Metrics:</strong> Pre/post empathy measurement (IRI scale, qualitative interviews)</li>
+                    <li><strong>Accessibility:</strong> Adapt for non-visual heartbeat perception (deaf/blind users)</li>
+                </ul>
+            </section>
+            
+            <div class="section-divider"></div>
+            
+            <section>
+                <h2>Documentation & Links</h2>
+                <ul>
+                    <li><strong><a href="https://github.com/julxng/would-you-understand" target="_blank">GitHub Repository</a></strong> – Complete source code, setup instructions, troubleshooting</li>
+                    <li><strong><a href="https://docs.google.com/document/d/YOUR_DOC_ID" target="_blank">Research Notes</a></strong> – Development log, user feedback, iteration notes</li>
+                    <li><strong>References</strong>
+                        <ul>
+                            <li>Goldstein et al. (2017): Brain-to-brain coupling during handholding</li>
+                            <li>Verkruysse et al. (2008): Remote photoplethysmographic imaging</li>
+                            <li>Jakubiak & Feeney (2017): Affectionate touch and cardiovascular reactivity</li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        </article>
+    </div>
 </body>
 </html>
